@@ -29,7 +29,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install cssnano html-minifier --save-dev
+          npm install cssnano html-minifier postcss --save-dev
 
       - name: Create dist directory
         run: |
