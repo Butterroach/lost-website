@@ -29,7 +29,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install cssnano html-minifier postcss --save-dev
+          npm install cssnano html-minifier postcss postcss-cli --save-dev
+        
+      - name: Configure postcss
+        run: |
+          echo "module.exports = {plugins: [require('cssnano')]}" > postcss.config.js
 
       - name: Create dist directory
         run: |
@@ -41,7 +45,7 @@ jobs:
             
       - name: Minify CSS
         run: |
-          npx cssnano *.css --output dist/*.css
+          npx postcss *.css --output dist/*.css
 
       - name: Copy non-code files
         run: |
