@@ -1,4 +1,4 @@
-name: Deploy
+name: Minify & deploy
 
 on:
   push:
@@ -41,11 +41,15 @@ jobs:
 
       - name: Minify HTML
         run: |
-          npx html-minifier --collapse-whitespace --remove-comments --minify-js true --minify-css true --output dist/*.html *.html
+          for file in *.html; do
+            npx html-minifier --collapse-whitespace --remove-comments --minify-js true --minify-css true --output dist/$file $file
+          done
             
       - name: Minify CSS
         run: |
-          npx postcss *.css --output dist/*.css
+          for file in *.css; do
+            npx postcss $file > dist/$file
+          done
 
       - name: Remove the old files
         run: |
@@ -54,10 +58,6 @@ jobs:
       - name: Move the new files to root
         run: |
           mv dist/* .
-      
-      - name: Remove the temporary dist dir
-        run: |
-          rmdir dist
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
