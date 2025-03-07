@@ -15,8 +15,10 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a {
     color: white;
+    text-align: center;
 }
 
 p,
@@ -128,4 +130,21 @@ img:not(#logo) {
 img:not(#logo):hover {
     transition: 0.2s ease-out;
     box-shadow: 0 0 10px 10px var(--accent-1);
+}
+
+@media (max-width: 768px) {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #logo {
+        max-width: 55%;
+        height: auto;
+        margin: auto;
+    }
+
+    #logo-glow {
+        max-width: 100%;
+    }
 }
