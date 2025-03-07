@@ -35,7 +35,7 @@ jobs:
         run: |
           echo "module.exports = {plugins: [require('cssnano')]}" > postcss.config.js
 
-      - name: Create dist directory
+      - name: Create temp dist dir
         run: |
           mkdir -p dist
 
@@ -47,9 +47,17 @@ jobs:
         run: |
           npx postcss *.css --output dist/*.css
 
-      - name: Copy non-code files
+      - name: Remove the old files
         run: |
-          find . -maxdepth 1 -type f ! -name "*.html" ! -name "*.css" -exec cp {} dist/ \;
+          rm *.html *.css
+      
+      - name: Move the new files to root
+        run: |
+          mv dist/* .
+      
+      - name: Remove the temporary dist dir
+        run: |
+          rmdir dist
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -57,7 +65,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
