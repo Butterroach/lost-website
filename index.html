@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css" />
+        <link rel="icon" href="logo.webp" type="image/webp" />
+        <title>Lost</title>
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="logo-container">
+                <img
+                    src="logo.webp"
+                    alt='Lost Logo: A green heptagon with the word "Lost" written on it, where the O is a 4-pointed green glowing star, and inbetween S and T, there is a tiny lowercase Q at the top.'
+                    id="logo"
+                />
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1024 1024"
+                    id="logo-glow"
+                >
+                    <filter id="blur">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="30" />
+                    </filter>
+                    <path
+                        fill="#77e777"
+                        stroke="#1e1e1e"
+                        stroke-width="500"
+                        d="M285.343 996.500H738.658L1021.295 642.084L920.423 200.134L512 3.448L103.577 200.134L2.705 642.084Z"
+                        filter="url(#blur)"
+                    />
+                </svg>
+                <h1 id="lost-header">Lost by Butterroach</h1>
+            </div>
+            <p>
+                <strong>Lost</strong> is a lightweight hosts manager made for
+                Linux in Python and Qt 6.
+            </p>
+            <img
+                src="screenshot.webp"
+                alt='Screenshot of Lost, showing a window
+            with a UI. The action bar has two menus: Lost, and Help. Below it,
+            there is a text bar with the url https://example.com/hosts.com, with
+            an "Add" button to the right. Below, there is a list of
+            hosts:
+            https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/pro-compressed.txt
+            (selected), and
+            https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts.
+            Below the list, there are 4 buttons. Going clockwise from top left:
+            "Remove", "Update", "Update all", and
+            "Save changes".'
+            />
+            <p>
+                You can add hosts, update hosts, and remove hosts all in a nifty
+                and easy-to-use UI.
+            </p>
+            <p>
+                Lost is also open source, licensed under the GNU General Public
+                License v3 (or, at your choice, any later version).
+            </p>
+            <h2>
+                <a
+                    href="https://github.com/Butterroach/lost/"
+                    id="source-code-view"
+                    >View the source code and install/update guide</a
+                >
+            </h2>
+            <p>&copy; Butterroach 2025-present</p>
+            <p>
+                This work is licensed under the
+                <a
+                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                    target="_blank"
+                    rel="license noopener noreferrer"
+                    >CC BY-NC-SA 4.0</a
+                >.
+            </p>
+        </div>
+    </body>
+</html>
