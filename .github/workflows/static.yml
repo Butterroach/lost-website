@@ -30,7 +30,11 @@ jobs:
       - name: Install dependencies
         run: |
           npm install cssnano html-minifier --save-dev
-          
+
+      - name: Create dist directory
+        run: |
+          mkdir -p dist
+
       - name: Minify HTML
         run: |
           npx html-minifier --collapse-whitespace --remove-comments --minify-js true --minify-css true --output dist/*.html *.html
